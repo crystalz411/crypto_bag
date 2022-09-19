@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from "react"
 import Welcome from './screens/welcome';
 import AppLoading from 'expo-app-loading';
+import RootStack from './components/Navigators/rootStack';
 import { useFonts } from "expo-font";
 
 export default function App() {
@@ -15,6 +16,6 @@ export default function App() {
   }
 
   return (
-    <Welcome/>
+    <RootStack/>
   );
 }
