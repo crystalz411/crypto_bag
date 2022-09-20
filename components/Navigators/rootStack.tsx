@@ -5,6 +5,7 @@ import Welcome from "../../screens/welcome";
 import Home from "../../screens/home";
 import styled from "styled-components/native";
 import { colors } from '../colors';
+import Greeting from "../header/greeting";
 
 export type RootStackParamList = {
     Welcome: undefined;
@@ -12,9 +13,6 @@ export type RootStackParamList = {
 }
 
 const Stack = createStackNavigator<RootStackParamList>();
-
-const StyledText = styled.Text`
-`;
 
 const RootStack: FunctionComponent = () => {
     return (
@@ -41,7 +39,15 @@ const RootStack: FunctionComponent = () => {
             <Stack.Screen 
             name="Home"
             component={Home}
-            options={{ headerShown: false}}
+            options={{
+                headerTitle: (props) => (
+                    <Greeting
+                    mainText="Hey there!"
+                    subText="Welcome back"
+                    {...props}
+                    />
+                )
+            }}
             />
         </Stack.Navigator>
     </NavigationContainer>
